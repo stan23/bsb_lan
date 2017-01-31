@@ -3,7 +3,7 @@
  *
  * ATTENION:
  *       There is no waranty that this system will not damage your heating system!
- *n
+ *
  * Author: Gero Schumacher (gero.schumacher@gmail.com)
  *        (based on the code and work from many other developers. Many thanks!)
  *
@@ -2069,6 +2069,7 @@ void Ipwe() {
   client.print(F("</tbody></table></form>"));
   webPrintFooter();
 } 
+#endif    // --- Ipwe() ---
 
 char *lookup_descr(uint16_t line) {
   int i=findLine(line,0,NULL);
@@ -2076,7 +2077,6 @@ char *lookup_descr(uint16_t line) {
   return buffer;
 }
 
-#endif    // --- Ipwe() ---
 
 /** *****************************************************************
  *  Function:
@@ -2571,7 +2571,7 @@ void loop() {
  * *************************************************************** */
 void setup() {
   // The computer hardware serial interface #0:
-  //   115,800 bps, 8 data bits, no parity
+  //   115,200 bps, 8 data bits, no parity
   Serial.begin(115200, SERIAL_8N1); // hardware serial interface #0
   Serial.println(F("READY"));
   Serial.print(F("free RAM:"));
